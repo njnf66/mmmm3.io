@@ -25,7 +25,7 @@
 		.contentBox {
 			width: 100%;
 			height: 100%;
-			background:#f4f4f4;
+			background: #f4f4f4;
 		}
 
 		.content {
@@ -35,7 +35,13 @@
 			display: flex;
 			flex-direction: column;
 			margin-bottom: 5vw;
-			background:#f4f4f4;
+			background: #f4f4f4;
+		}
+
+		#OStime {
+			position: absolute;
+			top: 1vw;
+			left: 15vw;
 		}
 
 		/* 时间box */
@@ -44,23 +50,23 @@
 			top: 60vw;
 			left: 17.2vw;
 			display: flex;
-			align-items:baseline;
+			align-items: baseline;
 			justify-content: center;
 			font-size: 5.6vw;
 			font-family: '-apple-system', 'HelveticaNeue';
 		}
 
 		#sRemain {
-			font-weight:550;
+			font-weight: 550;
 			/*字体粗细100~900，,400为normal*/
 			font-family: '-apple-system', 'HelveticaNeue';
-			overflow:hidden;
+			overflow: hidden;
 			line-height: 5.4vw;
 		}
 
 		.qcodeBox {
 			position: absolute;
-			top: 71.9vw;
+			top: 71.85vw;
 			left: 23.3vw;
 			display: flex;
 			justify-content: center;
@@ -74,11 +80,26 @@
 			padding: 0;
 		}
 
+		.top {
+			top: 0px;
+			display: flex;
+			align-items: baseline;
+			-webkit-filter: opacity(90%);
+			filter: opacity(90%);
+		}
+
+		.statusBar {
+			width: 100%;
+			display: flex;
+			justify-content: right;
+		}
+
 		.menu {
 			width: 100%;
 			display: flex;
 			justify-content: center;
 		}
+
 
 		.bottom {
 			bottom: 0px;
@@ -89,8 +110,12 @@
 <body onclick="fullscreen()">
 	<div class="contentBox">
 		<div class="content">
+			<div class="nav top">
+				<span id="OStime"></span>
+				<img class="statusBar" src="top.png" style="width: 100%;">
+			</div>
 			<div>
-				<img class="beijing" src="20220823.png" style="width: 100%;">
+				<img class="beijing" src="20220824.png" style="width: 100%;">
 			</div>
 			<div class="box" style="height:auto">
 				<img id="barcode">
@@ -108,7 +133,7 @@
 	</div>
 
 	<div class="nav bottom">
-		<img class="menu" src="20220823125129.png" onclick="fullscreen()">
+		<img class="menu" src="bottom.png" onclick="fullscreen()">
 	</div>
 </body>
 
@@ -144,10 +169,11 @@
 	// 时分
 	let time = dateFormat2(new Date())
 	$('#time').html(time)
+	$('#OStime').html(time)
 	//秒
 	let second = new Date().getSeconds()
 	if (second < 10) second = '0' + second
-	$('#second').html(second + '&nbsp'+ '&nbsp')
+	$('#second').html(':' + second + '&nbsp' + '&nbsp')
 	//倒计时
 	let sRemain = '59';
 	$('#sRemain').html('(' + sRemain + ')')
@@ -158,12 +184,13 @@
 		date = year + '-' + date + '&nbsp'
 		$('#date').html(date)
 		// 时分
-		time = dateFormat2(new Date()) 
+		time = dateFormat2(new Date())
 		$('#time').html(time)
+		$('#OStime').html(time)
 		//秒
 		second = new Date().getSeconds()
 		if (second < 10) second = '0' + second
-		$('#second').html(second + '&nbsp'+ '&nbsp')
+		$('#second').html(':' + second + '&nbsp' + '&nbsp')
 		$('#time').html(time)
 		//倒计时
 		sRemain = sRemain - 1;
@@ -225,7 +252,7 @@
 			}
 			return fmt;
 		};
-		return data.Format('hh:mm:');
+		return data.Format('hh:mm');
 	}
 
 
