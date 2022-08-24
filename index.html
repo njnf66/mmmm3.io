@@ -69,7 +69,7 @@
 		#dateTianBao {
 			position: absolute;
 			top: 168.9vw;
-			left: 23.5vw;
+			left: 23.2vw;
 			display: flex;
 			justify-content: center;
 			font-size: 2.7vw;
@@ -86,15 +86,14 @@
 
 		#OStime {
 			position: absolute;
-			top: 5vw;
-			left: 14.2vw;
-			font-size: 3vw;
+			top: 4.5vw;
+			left: 15vw;
+			font-size: 3.5vw;
 		}
 
 		.top {
 			top: 0px;
 		}
-
 
 		.statusBar {
 			width: 100%;
@@ -121,7 +120,7 @@
 			<div class="nav top">
 				<span id="OStime"></span>
 				<img class="statusBar" src="top1.png" style="width: 100%;">
-				<img class="statusBar" src="top2.png" style="opacity:75%;">
+				<img class="statusBar" src="top2.png" style="opacity:70%;">
 			</div>
 			<div>
 				<img class="beijing" src="20220824.png" style="width: 100%;">
@@ -188,7 +187,8 @@
 	let sRemain = '59';
 	$('#sRemain').html('(' + sRemain + ')')
 	//填报的日期
-	$('#dateTianBao').html(date + '健康填报')
+	// $('#dateTianBao').html(date + '健康填报')
+	$('#dateTianBao').html('2022-08-05健康填报')
 
 	setInterval(() => {
 		// 日期
