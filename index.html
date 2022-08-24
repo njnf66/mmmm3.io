@@ -38,12 +38,6 @@
 			background: #f4f4f4;
 		}
 
-		#OStime {
-			position: absolute;
-			top: 1vw;
-			left: 15vw;
-		}
-
 		/* 时间box */
 		.timeBox {
 			position: absolute;
@@ -72,12 +66,29 @@
 			justify-content: center;
 		}
 
+		#dateTianBao {
+			position: absolute;
+			top: 76vh;
+			left: 25vw;
+			display: flex;
+			justify-content: center;
+			font-size: 3vw;
+			color: #979797;
+		}
+
 		.nav {
 			width: 100%;
 			z-index: 9998;
 			position: fixed;
 			margin: 0;
 			padding: 0;
+		}
+
+		#OStime {
+			position: absolute;
+			top: 2.7vw;
+			left: 14vw;
+			font-size: 2vw;
 		}
 
 		.top {
@@ -128,6 +139,7 @@
 				<div class="qcodeBox" onclick="resetcodeContent()">
 					<div id="qrcode"></div>
 				</div>
+				<div id="dateTianBao"></div>
 			</div>
 		</div>
 	</div>
@@ -161,11 +173,11 @@
 	}
 
 	//动态时间
-	// 日期
+	// 年月日
 	let date = dateFormat(new Date())
 	var year = new Date().getFullYear();
-	date = year + '-' + date + '&nbsp';
-	$('#date').html(date)
+	date = year + '-' + date;
+	$('#date').html(date + '&nbsp')
 	// 时分
 	let time = dateFormat2(new Date())
 	$('#time').html(time)
@@ -177,12 +189,14 @@
 	//倒计时
 	let sRemain = '59';
 	$('#sRemain').html('(' + sRemain + ')')
+	//填报的日期
+	$('#dateTianBao').html(date + '健康填报')
 
 	setInterval(() => {
 		// 日期
 		date = dateFormat(new Date())
-		date = year + '-' + date + '&nbsp'
-		$('#date').html(date)
+		date = year + '-' + date
+		$('#date').html(date + '&nbsp')
 		// 时分
 		time = dateFormat2(new Date())
 		$('#time').html(time)
